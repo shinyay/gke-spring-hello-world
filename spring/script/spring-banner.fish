@@ -12,8 +12,6 @@ function do_func
   set -lq _flag_text
   or set -l _flag_text "Spring"
 
-#  curl "https://devops.datenkollektiv.de/renderBannerTxt?text={$_flag_text}&font=soft" > ../spring/src/main/resources/banner.txt
-  #curl "https://devops.datenkollektiv.de/renderBannerTxt?text={$_flag_text}&font=soft" > (realpath spring-banner.fish |awk -F '/script' '{print $1}')/src/main/resources/banner.txt
   curl "https://devops.datenkollektiv.de/renderBannerTxt?text={$_flag_text}&font=soft" > (pwd |awk -F '/gke-spring-hello-world' '{print $1}')/gke-spring-hello-world/spring/src/main/resources/banner.txt
 end
 
