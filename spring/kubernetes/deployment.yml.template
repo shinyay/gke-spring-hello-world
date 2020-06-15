@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: hello-gke-app
-        image: gcr.io/$GOOGLE_CLOUD_PROJECT/hello-gke:latest
+        image: gcr.io/GOOGLE_CLOUD_PROJECT/hello-gke:latest
         ports:
         - containerPort: 8080
 ---

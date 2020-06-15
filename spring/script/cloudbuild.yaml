@@ -14,7 +14,6 @@ steps:
   - |
     gcloud source repos clone $REPO_NAME && \
     cd $REPO_NAME && \
-    git checkout candidate && \
     git config user.email $(gcloud auth list --filter=status:ACTIVE --format='value(account)')
 # This step generates the new manifest
 - name: 'gcr.io/cloud-builders/gcloud'
@@ -38,7 +37,7 @@ steps:
     git commit -m "Deploying image gcr.io/${PROJECT_ID}/${REPO_NAME}:${SHORT_SHA}
     Built from commit ${COMMIT_SHA} of repository ${REPO_NAME}
     Author: $(git log --format='%an <%ae>' -n 1 HEAD)" && \
-    git push origin candidate
+    git push origin master
 # This step
 - name: 'gcr.io/cloud-builders/kubectl'
   args:
