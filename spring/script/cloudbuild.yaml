@@ -5,9 +5,10 @@ steps:
   args: ['push', 'gcr.io/$PROJECT_ID/$REPO_NAME:$SHORT_SHA']
 - name: 'gcr.io/cloud-builders/kubectl'
   args:
-  - 'apply'
-  - '-f'
-  - 'spring/kubernetes/deployment.yml'
+  - 'set'
+  - 'image'
+  - 'deployment/$REPO_NAME-deployment'
+  - 'hello-gke-app=gcr.io/$PROJECT_ID/$REPO_NAME:$SHORT_SHA'
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-c'
   - 'CLOUDSDK_CONTAINER_CLUSTER=$REPO_NAME-cluster'
