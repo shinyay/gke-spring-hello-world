@@ -19,6 +19,7 @@ function do_func
 # roles/container.hostServiceAgentUser - Allows the Kubernetes Engine service account in the host project to configure shared network resources for cluster management
 # roles/container.viewer - Provides read-only access to GKE resources
   gcloud projects add-iam-policy-binding (gcloud config get-value project) --member serviceAccount:$_flag_account --role roles/container.admin
+  gcloud projects add-iam-policy-binding (gcloud config get-value project) --member serviceAccount:$_flag_account --role roles/source.writer
 
 end
 
