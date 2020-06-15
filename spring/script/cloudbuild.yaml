@@ -28,22 +28,17 @@ steps:
     git commit -m "Deploying image gcr.io/${PROJECT_ID}/${REPO_NAME}:${SHORT_SHA} Built from commit ${COMMIT_SHA} of repository ${REPO_NAME} Author: $(git log --format='%an <%ae>' -n 1 HEAD)" && \
     git push origin master
 
-# This step pushes the manifest back to repository
-# - name: 'gcr.io/cloud-builders/gcloud'
-#   id: Push manifest
-#   entrypoint: /bin/sh
-#   args:
-#   - '-c'
-#   - |
-#     set -x && \
-#     cd $REPO_NAME && \
-#     git status && \
-#     git add spring/kubernetes/deployment.yml && \
-#     git commit -m "Deploying image gcr.io/${PROJECT_ID}/${REPO_NAME}:${SHORT_SHA}
-#     Built from commit ${COMMIT_SHA} of repository ${REPO_NAME}
-#     Author: $(git log --format='%an <%ae>' -n 1 HEAD)" && \
-#     git push origin master
-# This step
+# This step generates the new manifest
+- name: 'gcr.io/cloud-builders/gcloud'
+  id: Generate manifest
+  entrypoint: /bin/sh
+  args:
+  - '-c'
+  - |
+    ls -l spring/kubernetes/deployment.yml && \
+    cat spring/kubernetes/deployment.yml
+
+# This step deploys app on gke
 - name: 'gcr.io/cloud-builders/kubectl'
   args:
   - 'apply'
