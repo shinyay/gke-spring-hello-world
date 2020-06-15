@@ -23,7 +23,7 @@ steps:
   - '-c'
   - |
      sed "s/GOOGLE_CLOUD_PROJECT/${PROJECT_ID}/g" spring/kubernetes/deployment.yml.template | \
-     sed "s/latest/${SHORT_SHA}/g" > spring/kubernetes/deployment.yml
+     sed "s/latest/${SHORT_SHA}/g" > spring/kubernetes/deployment.yml && git status
 # This step pushes the manifest back to repository
 - name: 'gcr.io/cloud-builders/gcloud'
   id: Push manifest
@@ -33,6 +33,7 @@ steps:
   - |
     set -x && \
     cd $REPO_NAME && \
+    git status && \
     git add spring/kubernetes/deployment.yml && \
     git commit -m "Deploying image gcr.io/${PROJECT_ID}/${REPO_NAME}:${SHORT_SHA}
     Built from commit ${COMMIT_SHA} of repository ${REPO_NAME}
