@@ -13,8 +13,8 @@ function do_func
   or set -l _flag_project (gcloud config get-value project)
   
   set -x GOOGLE_CLOUD_PROJECT $_flag_project
-  envsubst < (pwd |awk -F '/gke-spring-hello-world' '{print $1}')/gke-spring-hello-world/spring/script/deployment.yml.template \
-    > (pwd |awk -F '/gke-spring-hello-world' '{print $1}')/gke-spring-hello-world/spring/script/deployment.yml
+  envsubst < (pwd |awk -F '/gke-spring-hello-world' '{print $1}')/gke-spring-hello-world/spring/kubernetes/deployment.yml.template \
+    > (pwd |awk -F '/gke-spring-hello-world' '{print $1}')/gke-spring-hello-world/spring/kubernetes/deployment.yml
 end
 
 do_func $argv
