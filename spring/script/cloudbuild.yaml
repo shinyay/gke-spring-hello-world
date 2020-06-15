@@ -27,7 +27,7 @@ steps:
 
 # This step generates the new manifest
 - name: 'gcr.io/cloud-builders/gcloud'
-  id: Debug
+  id: Debug2
   entrypoint: /bin/sh
   args:
   - '-c'
