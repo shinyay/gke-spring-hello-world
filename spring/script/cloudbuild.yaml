@@ -22,7 +22,7 @@ steps:
   args:
   - '-c'
   - |
-     pwd && ls && sed "s/GOOGLE_CLOUD_PROJECT/${PROJECT_ID}/g" spring/kubernetes/deployment.yml.template |  sed "s/latest/${SHORT_SHA}/g" > spring/kubernetes/deployment.yml && git status
+     ls spring/kubernetes/deployment.yml.template && sed "s/GOOGLE_CLOUD_PROJECT/${PROJECT_ID}/g" spring/kubernetes/deployment.yml.template |  sed "s/latest/${SHORT_SHA}/g" > spring/kubernetes/deployment.yml && cat spring/kubernetes/deployment.yml && git status
 # This step pushes the manifest back to repository
 - name: 'gcr.io/cloud-builders/gcloud'
   id: Push manifest
