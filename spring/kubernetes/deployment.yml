@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: hello-gke-app
-        image: gcr.io/shinyay-works-june-280000/hello-gke:latest
+        image: gcr.io/$PROJECT_ID/hello-gke:$SHORT_SHA
         ports:
         - containerPort: 8080
 ---
