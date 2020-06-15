@@ -30,7 +30,7 @@ steps:
 
 # This step generates the new manifest
 - name: 'gcr.io/cloud-builders/gcloud'
-  id: Generate manifest
+  id: Debug
   entrypoint: /bin/sh
   args:
   - '-c'
