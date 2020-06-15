@@ -5,7 +5,7 @@ function do_func
   or return 1
 
   if set -lq _flag_help
-    echo "gke-deployment-config.fish -p/--project <DOCKERFILE_DIRECTORY>"
+    echo "gke-deployment-config.fish -p/--project <GOOGLE_CLOUD_PROJECT>"
     return
   end
 

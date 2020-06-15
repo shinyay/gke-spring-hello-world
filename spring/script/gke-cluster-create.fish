@@ -5,7 +5,7 @@ function do_func
   or return 1
 
   if set -lq _flag_help
-    echo "gke-cluster-create.fish -c/--cluster <DOCKERFILE_DIRECTORY>"
+    echo "gke-cluster-create.fish -c/--cluster <GKE_CLUSTER_NAME>"
     return
   end
 
