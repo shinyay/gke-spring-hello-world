@@ -22,7 +22,7 @@ steps:
   args:
   - '-c'
   - |
-    sed "s/GOOGLE_CLOUD_PROJECT/${PROJECT_ID}/g" spring/kubernetes/deployment.yml.template |  sed "s/latest/${SHORT_SHA}/g" > spring/kubernetes/deployment.yml && \\\
+    sed "s/GOOGLE_CLOUD_PROJECT/${PROJECT_ID}/g" spring/kubernetes/deployment.yml.template |  sed "s/latest/${SHORT_SHA}/g" > spring/kubernetes/deployment.yml && \
     git config user.email $(gcloud auth list --filter=status:ACTIVE --format='value(account)') && \
     git add spring/kubernetes/deployment.yml && \
     git commit -m "Deploying image gcr.io/${PROJECT_ID}/${REPO_NAME}:${SHORT_SHA} Built from commit ${COMMIT_SHA} of repository ${REPO_NAME} Author: $(git log --format='%an <%ae>' -n 1 HEAD)" && \
