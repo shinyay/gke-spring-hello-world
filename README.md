@@ -1,8 +1,13 @@
 # Simple Hello World by Spring on GKE
 
-Overview
+Hello World App by Spring Boot deployed to GKE with Cloud Build
 
 ## Description
+
+This project describes how to deploy Spring App to GKE using CI/CD pipeline by Cloud Build.
+
+- [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine/docs)
+- [Cloud Build](https://cloud.google.com/cloud-build/docs)
 
 ## Demo
 
