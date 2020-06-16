@@ -58,6 +58,13 @@ $   gcloud container clusters create <GKE_CLUSTER_NAME> \
 
 - [OAuth 2.0 Scopes](https://developers.google.com/identity/protocols/oauth2/scopes?_ga=2.239518464.2020385847.1592291923-533680975.1592291923)
 
+#### Generate `kubeconfig` entry
+
+```shell script
+$ gcloud container clusters get-credentials <CLUSTER_NAME>
+```
+
+
 ## Features
 
 - feature:1
