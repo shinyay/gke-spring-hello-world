@@ -27,6 +27,23 @@ COPY --from=build /home/gradle/src/build/libs/*.jar /app.jar
 :
 ```
 
+### 2. Containerize with Cloud Build
+**hello-gke** is app-name and repository-name.
+
+- [Script](script/cloud-build.fish)
+
+#### Get your Google Cloud project ID
+
+```shell script
+$ gcloud config get-value project
+```
+
+#### Build your container image using Cloud Build
+
+```shell script
+$ gcloud builds submit --tag gcr.io/<GOOGLE_PROJECT_ID>/hello-gke <DOCKERFILE_DIRECTORY>
+```
+
 ## Features
 
 - feature:1
