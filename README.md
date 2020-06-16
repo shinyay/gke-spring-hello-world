@@ -44,6 +44,20 @@ $ gcloud config get-value project
 $ gcloud builds submit --tag gcr.io/<GOOGLE_PROJECT_ID>/hello-gke <DOCKERFILE_DIRECTORY>
 ```
 
+### 3. Create GKE Cluster
+
+#### Create GKE Cluster as Cloud Platform Scope
+```shell script
+$   gcloud container clusters create <GKE_CLUSTER_NAME> \
+    --num-nodes 1 \
+    --scopes cloud-platform \
+    --enable-stackdriver-kubernetes \
+    --enable-ip-alias \
+    --zone us-central1-c
+```
+
+- [OAuth 2.0 Scopes](https://developers.google.com/identity/protocols/oauth2/scopes?_ga=2.239518464.2020385847.1592291923-533680975.1592291923)
+
 ## Features
 
 - feature:1
