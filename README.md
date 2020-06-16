@@ -64,6 +64,46 @@ $   gcloud container clusters create <GKE_CLUSTER_NAME> \
 $ gcloud container clusters get-credentials <CLUSTER_NAME> --zone us-central1-c
 ```
 
+### 4. Deploy App to GKE Cluster
+
+#### Deployment Configuration
+
+- [deployment.yml](spring/kubernetes/deployment.yml.template)
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-gke-deployment
+spec:
+  selector:
+    matchLabels:
+      app: hello-gke
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hello-gke
+    spec:
+      containers:
+      - name: hello-gke-app
+        image: gcr.io/GOOGLE_CLOUD_PROJECT/hello-gke:latest
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-gke
+spec:
+  type: NodePort
+  selector:
+    app: hello-gke
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
+```
 
 ## Features
 
