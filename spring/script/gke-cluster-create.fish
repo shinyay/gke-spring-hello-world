@@ -12,7 +12,6 @@ function do_func
   set -lq _flag_cluster
   or set -l _flag_cluster hello-gke-cluster
 
-  gcloud builds submit --tag gcr.io/(gcloud config get-value project)/hello-gke $_flag_cluster
   gcloud container clusters create $_flag_cluster \
     --num-nodes 1 \
     --scopes cloud-platform \
