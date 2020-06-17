@@ -108,6 +108,25 @@ spec:
 - Generate Deployement configuration
   - [gke-deployment-config.fish](spring/script/gke-deployment-config.fish)
 
+#### Service Configuration for LoadBalancer
+
+- [service.yml](spring/kubernetes/service.yml )
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-gke-loadbalancer
+spec:
+  type: LoadBalancer
+  selector:
+    app: hello-gke
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+```
+
 
 ## Features
 
