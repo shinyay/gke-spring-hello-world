@@ -146,6 +146,13 @@ spec:
           servicePort: 8080
 ```
 
+#### Deploy to GKE Cluster
+```shell_script
+$ kubectl apply -f spring/kubernetes/deployment.yml
+$ kubectl apply -f spring/kubernetes/service.yml
+$ kubectl apply -f spring/kubernetes/ingress.yml
+```
+
 ## Features
 
 - feature:1
