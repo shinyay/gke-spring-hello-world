@@ -105,6 +105,10 @@ spec:
     targetPort: 8080
 ```
 
+- Generate Deployement configuration
+  - [gke-deployment-config.fish](spring/script/gke-deployment-config.fish)
+
+
 ## Features
 
 - feature:1
