@@ -127,6 +127,24 @@ spec:
     targetPort: 8080
 ```
 
+#### Ingress Configuration
+
+- [ingress.yml](spring/kubernetes/ingress.yml)
+
+```yaml
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: hello-gke-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /*
+        backend:
+          serviceName: hello-gke
+          servicePort: 8080
+```
 
 ## Features
 
