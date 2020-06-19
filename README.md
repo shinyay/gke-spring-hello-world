@@ -156,6 +156,14 @@ $ kubectl apply -f spring/kubernetes/service.yml
 $ kubectl apply -f spring/kubernetes/ingress.yml
 ```
 
+### 5. Create and Associate wuth Source Repository
+**hello-gke** is source-repository-name.
+
+#### Create Source Repository
+```shell_script
+$ gcloud source repos create <REPOSITRY_NAME>
+```
+
 ## Features
 
 - feature:1
