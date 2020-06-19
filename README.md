@@ -30,7 +30,7 @@ COPY --from=build /home/gradle/src/build/libs/*.jar /app.jar
 ### 2. Containerize with Cloud Build
 **hello-gke** is app-name and repository-name.
 
-- [Script](script/cloud-build.fish)
+- [Script](spring/script/cloud-build.fish)
 
 #### Get your Google Cloud project ID
 
@@ -45,6 +45,9 @@ $ gcloud builds submit --tag gcr.io/<GOOGLE_PROJECT_ID>/hello-gke <DOCKERFILE_DI
 ```
 
 ### 3. Create GKE Cluster
+**hello-gke-cluster** is GKE cluster name.
+
+- [Script](spring/script/gke-cluster-create.fish)
 
 #### Create GKE Cluster as Cloud Platform Scope
 ```shell script
