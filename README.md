@@ -171,6 +171,13 @@ $ git remote add google https://source.developers.google.com/p/(gcloud config ge
 $ git push google master
 ```
 
+### 6. Bind Roles of GKE and CSR with Cloud Build
+
+```shell_script
+$ gcloud projects add-iam-policy-binding (gcloud config get-value project) --member serviceAccount:<CLOUDBUILD_SA> --role roles/container.admin
+$ gcloud projects add-iam-policy-binding (gcloud config get-value project) --member serviceAccount:<CLOUDBUILD_SA> --role roles/source.writer
+```
+
 ## Features
 
 - feature:1
