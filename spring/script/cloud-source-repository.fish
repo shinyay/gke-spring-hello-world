@@ -13,7 +13,7 @@ function do_func
   or set -l _flag_repository hello-gke
 
   gcloud source repos create $_flag_repository
-  git config credential.helper gcloud.sh
+  git config credential.'https://source.developers.google.com'.helper gcloud.sh
   git remote add google https://source.developers.google.com/p/(gcloud config get-value project)/r/$_flag_repository
   git push google master
 end

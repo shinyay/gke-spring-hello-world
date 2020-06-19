@@ -164,6 +164,13 @@ $ kubectl apply -f spring/kubernetes/ingress.yml
 $ gcloud source repos create <REPOSITRY_NAME>
 ```
 
+#### Associate with Source Repository
+```shell_script
+$ git config credential.'https://source.developers.google.com'.helper gcloud.sh
+$ git remote add google https://source.developers.google.com/p/(gcloud config get-value project)/r/$_flag_repository
+$ git push google master
+```
+
 ## Features
 
 - feature:1
